@@ -71,8 +71,10 @@ $('forgot').onclick=e=>{e.preventDefault();msg.className='abs msg';msg.textConte
 function entrar(){const u=$('user').value.trim(),p=$('pass').value;msg.className='abs msg';
  if(!u||!p){msg.textContent='Preencha usuário e senha.';return}
  try{$('rem').checked?localStorage.setItem('vde_user',u):localStorage.removeItem('vde_user')}catch(e){}
- // TODO: troque por chamada ao seu backend e redirecione ao painel.
- msg.className='abs msg ok';msg.textContent='Login validado (demonstração).'}
+ // PROTÓTIPO: este formulário ainda não autentica no servidor.
+ // Para demonstrar o fluxo de telas, qualquer usuário/senha preenchidos abrem a comanda.
+ msg.className='abs msg ok';msg.textContent='Abrindo demonstração das comandas...';
+ setTimeout(()=>{window.location.href='./comandas.html'},350)}
 $('go').onclick=entrar;
 document.addEventListener('keydown',e=>{if(e.key==='Enter')entrar()});
 </script></body></html>
