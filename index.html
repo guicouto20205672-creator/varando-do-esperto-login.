@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Varando do Esperto | Acesso</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0b0d;--panel:#151518;--line:#303036;--text:#f7f7f8;--muted:#a6a6b0;--accent:#f2b705}
+*{box-sizing:border-box}body{margin:0;min-height:100svh;background:radial-gradient(ellipse at top right,#282016 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;display:grid;place-items:center;padding:22px}
+.wrap{width:100%;max-width:960px;min-height:580px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(21,21,24,.96);box-shadow:0 28px 90px #0008}
+.brand{padding:clamp(28px,5vw,58px);display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#211b0c,#111113 65%);border-right:1px solid var(--line)}
+.mark{width:56px;height:56px;border:1px solid #8f6c08;border-radius:16px;display:grid;place-items:center;color:var(--accent);font-size:28px;font-weight:900}
+.eyebrow{margin-top:34px;color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:800}
+h1{font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-.04em;margin:12px 0 18px}.brand p{color:var(--muted);max-width:330px;margin:0}
+.foot{font-size:12px;color:#777780;margin-top:50px}
+.login{padding:clamp(28px,5vw,58px);display:flex;flex-direction:column;justify-content:center}
+.login h2{font-size:27px;margin:0 0 7px;letter-spacing:-.03em}.sub{color:var(--muted);margin:0 0 30px;font-size:14px}
+label{display:block;font-size:13px;color:#dedee3;font-weight:650;margin:17px 0 8px}input{width:100%;min-height:48px;background:#0d0d10;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:12px 14px;font:inherit;outline:none}input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #f2b70522}
+.password{position:relative}.password input{padding-right:66px}.toggle{position:absolute;right:8px;top:7px;border:0;background:transparent;color:var(--muted);padding:8px;font-size:12px;cursor:pointer}
+.row{display:flex;justify-content:flex-end;margin:13px 0 22px}.link{border:0;background:none;color:var(--accent);font:inherit;font-size:13px;cursor:pointer;padding:0}
+.submit{width:100%;min-height:49px;border:0;border-radius:11px;background:var(--accent);color:#16120a;font-weight:850;font-size:15px;cursor:pointer;transition:filter .15s}.submit:hover{filter:brightness(1.08)}.submit:disabled{opacity:.65;cursor:wait}
+.status{min-height:22px;margin:14px 0 0;font-size:13px;color:var(--muted);overflow-wrap:anywhere}.note{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:#777780}
+@media(max-width:680px){body{padding:12px;align-items:start}.wrap{grid-template-columns:1fr;min-height:auto;border-radius:19px;max-width:440px;margin:auto}.brand{padding:24px 24px 22px;border-right:0;border-bottom:1px solid var(--line)}.mark{width:45px;height:45px;border-radius:13px;font-size:23px}.eyebrow{margin-top:20px;font-size:10px}h1{font-size:30px;margin:8px 0 10px}.brand p{font-size:13px}.foot{margin-top:22px}.login{padding:27px 24px 30px}.login h2{font-size:24px}.sub{margin-bottom:19px}label{margin-top:14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="brand" aria-label="Apresentação">
+<div>
+<div class="mark" aria-hidden="true">V</div>
+<div class="eyebrow">Área segura de acesso</div>
+<h1>Varando do<br>Esperto.</h1>
+<p>Entre na sua conta para continuar. Acesso simples, direto e preparado para celular e computador.</p>
+</div>
+<div class="foot">© <span id="year"></span> Varando do Esperto</div>
+</section>
+<section class="login" aria-labelledby="login-title">
+<h2 id="login-title">Bem-vindo de volta</h2>
+<p class="sub">Informe seus dados para entrar na plataforma.</p>
+<form id="login-form">
+<label for="email">E-mail</label>
+<input id="email" name="email" type="email" autocomplete="username" placeholder="voce@exemplo.com" required>
+<label for="password">Senha</label>
+<div class="password"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required><button class="toggle" id="toggle" type="button">Mostrar</button></div>
+<div class="row"><button class="link" id="reset" type="button">Esqueci minha senha</button></div>
+<button class="submit" id="submit" type="submit">Entrar na conta</button>
+<p class="status" id="status" role="status" aria-live="polite"></p>
+</form>
+<div class="note">Sua conta precisa estar configurada no Supabase para autenticação funcionar. Este site não solicita nem armazena sua senha fora do provedor de autenticação.</div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const SUPABASE_URL = 'COLE_AQUI_A_URL_DO_SEU_PROJETO_SUPABASE';
+const SUPABASE_ANON_KEY = 'COLE_AQUI_SUA_CHAVE_PUBLICA_ANON';
+const form = document.getElementById('login-form');
+const status = document.getElementById('status');
+const submit = document.getElementById('submit');
+const say = (message, error=false) => { status.textContent=message; status.style.color=error?'#ff8585':'#f2b705'; };
+document.getElementById('toggle').addEventListener('click',()=>{const p=document.getElementById('password');const show=p.type==='password';p.type=show?'text':'password';document.getElementById('toggle').textContent=show?'Ocultar':'Mostrar';});
+function client(){if(!window.supabase){say('Não foi possível carregar o serviço de autenticação.',true);return null;}if(SUPABASE_URL.startsWith('COLE_')||SUPABASE_ANON_KEY.startsWith('COLE_')){say('Falta configurar a URL e a chave pública do Supabase.',true);return null;}return window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
+form.addEventListener('submit',async e=>{e.preventDefault();const sb=client();if(!sb)return;submit.disabled=true;submit.textContent='Entrando…';say('Validando acesso…');try{const {data,error}=await sb.auth.signInWithPassword({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});if(error)throw error;say('Login realizado. A autenticação foi concluída; configure aqui o endereço do painel para redirecionar.');}catch(err){say(err.message||'Não foi possível entrar. Confira os dados e tente novamente.',true);}finally{submit.disabled=false;submit.textContent='Entrar na conta';}});
+document.getElementById('reset').addEventListener('click',async()=>{const email=document.getElementById('email').value.trim();if(!email){say('Digite seu e-mail acima para receber o link de recuperação.',true);document.getElementById('email').focus();return;}const sb=client();if(!sb)return;try{const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)throw error;say('Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.');}catch(err){say(err.message||'Não foi possível solicitar a recuperação.',true);}});
+</script>
+</body>
+</html>
