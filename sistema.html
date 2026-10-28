@@ -71,6 +71,24 @@
   #authGate .authcard{padding:18px 16px!important}
 }
 </style>
+<style id="centralizacao-forcada">
+@media screen and (max-width:1200px){
+ html,body{margin:0!important;min-height:100%!important;overflow:hidden!important}
+ body #authGate{
+ position:fixed!important;inset:0!important;width:100vw!important;
+ height:100vh!important;height:100dvh!important;min-height:0!important;
+ margin:0!important;padding:12px!important;box-sizing:border-box!important;
+ display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;overflow:hidden!important;
+ }
+ body #authGate .authcard{
+ position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;
+ transform:none!important;margin:0!important;float:none!important;
+ width:min(420px,calc(100vw - 28px))!important;max-height:calc(100dvh - 24px)!important;
+ overflow-y:auto!important;flex:0 1 auto!important;align-self:center!important;
+ }
+}
+</style>
 </head>
 <body><div id="authGate"><div class="authcard"><div style="font-size:34px">🍢</div><h2>Varanda do Espeto</h2><p>Entre com seu e-mail e senha para abrir a área autorizada.</p><form id="authForm"><label>E-mail<input id="authEmail" type="email" autocomplete="username" required placeholder="seu@email.com"></label><label>Senha<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label><label style="display:flex;align-items:center;gap:8px"><input id="claimAdmin" type="checkbox" style="width:auto;margin:0"> Primeiro acesso: configurar conta do patrão</label><button id="authSubmit" type="submit">Entrar</button><button id="authSignup" class="secondary" type="button">Criar conta de funcionário</button><div id="authError" role="alert"></div></form></div></div>
 <div class="app">
