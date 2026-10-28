@@ -54,8 +54,11 @@
     background-position:center center!important;background-size:cover!important;
   }
   #authGate .authcard{
+    position:absolute!important;top:50%!important;left:50%!important;
+    transform:translate(-50%,-50%)!important;
     flex:0 0 auto!important;width:min(420px,100%)!important;max-width:100%!important;
-    margin:auto!important;box-sizing:border-box!important;
+    max-height:calc(100dvh - 24px)!important;overflow-y:auto!important;
+    margin:0!important;box-sizing:border-box!important;
   }
 }
 @media screen and (max-width:420px){
