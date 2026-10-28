@@ -89,6 +89,36 @@
  }
 }
 </style>
+
+<style id="melhoria-notebook">
+/* Ajustes exclusivos para notebook/desktop; não altera o layout móvel */
+@media screen and (min-width:901px){
+  #authGate{
+    background-size:50% 100% !important;
+    background-position:left center !important;
+    padding:clamp(24px,4vw,58px) !important;
+    justify-content:flex-end !important;
+  }
+  #authGate .authcard{
+    width:min(480px, calc(50vw - 70px)) !important;
+    padding:clamp(30px,3vw,42px) !important;
+    border-radius:22px !important;
+  }
+  #authGate h2{font-size:clamp(28px,2.2vw,34px) !important;margin-bottom:10px !important}
+  #authGate p{font-size:15px !important;line-height:1.6 !important}
+  #authGate label{font-size:14px !important;margin-top:17px !important}
+  #authGate input{font-size:15px !important;padding:15px !important;border-radius:11px !important}
+  #authGate button{font-size:15px !important;padding:15px !important;margin-top:15px !important}
+  #authError{font-size:13px !important}
+}
+@media screen and (min-width:901px) and (max-height:700px){
+  #authGate .authcard{padding:22px 30px !important;max-height:calc(100vh - 28px) !important}
+  #authGate label{margin-top:10px !important}
+  #authGate input{padding:11px !important}
+  #authGate button{padding:11px !important;margin-top:10px !important}
+}
+</style>
+
 </head>
 <body><div id="authGate"><div class="authcard"><div style="font-size:34px">🍢</div><h2>Varanda do Espeto</h2><p>Entre com seu e-mail e senha para abrir a área autorizada.</p><form id="authForm"><label>E-mail<input id="authEmail" type="email" autocomplete="username" required placeholder="seu@email.com"></label><label>Senha<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label><label style="display:flex;align-items:center;gap:8px"><input id="claimAdmin" type="checkbox" style="width:auto;margin:0"> Primeiro acesso: configurar conta do patrão</label><button id="authSubmit" type="submit">Entrar</button><button id="authSignup" class="secondary" type="button">Criar conta de funcionário</button><div id="authError" role="alert"></div></form></div></div>
 <div class="app">
