@@ -27,7 +27,21 @@
 #authGate{padding:12px}
 #authGate .authcard{padding:19px 16px;margin-bottom:10px}
 }
-.userbar{display:flex;gap:8px;align-items:center}.userbar button{border:1px solid #d9e1e9;border-radius:8px;background:#fff;padding:8px;font-weight:700;font-size:12px}#userManager{display:none;background:#fff;border:1px solid var(--line);padding:14px;border-radius:12px;margin-bottom:14px}#userRows .line{flex-wrap:wrap}@media(max-width:700px){.app{grid-template-columns:1fr}.side{position:relative;height:auto;padding:10px;gap:4px}.navwrap{display:flex;overflow:auto;gap:4px}.nav{white-space:nowrap;width:auto;padding:9px;font-size:12px}.brand{padding:5px 8px 10px}.sidefoot{display:none}.tables{grid-template-columns:repeat(4,minmax(0,1fr))}.pdv-layout{grid-template-columns:1fr}.pdv-right{position:static}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.top h1{font-size:20px}}</style>
+.userbar{display:flex;gap:8px;align-items:center}.userbar button{border:1px solid #d9e1e9;border-radius:8px;background:#fff;padding:8px;font-weight:700;font-size:12px}#userManager{display:none;background:#fff;border:1px solid var(--line);padding:14px;border-radius:12px;margin-bottom:14px}#userRows .line{flex-wrap:wrap}@media(max-width:700px){.app{grid-template-columns:1fr}.side{position:relative;height:auto;padding:10px;gap:4px}.navwrap{display:flex;overflow:auto;gap:4px}.nav{white-space:nowrap;width:auto;padding:9px;font-size:12px}.brand{padding:5px 8px 10px}.sidefoot{display:none}.tables{grid-template-columns:repeat(4,minmax(0,1fr))}.pdv-layout{grid-template-columns:1fr}.pdv-right{position:static}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.top h1{font-size:20px}}
+/* Ajuste final do fundo para telas menores */
+@media screen and (max-width: 900px){
+  #authGate{
+    background-image:linear-gradient(180deg,rgba(8,5,4,.02) 0%,rgba(8,5,4,.12) 38%,rgba(8,5,4,.70) 65%,rgba(8,5,4,.94) 100%),url('https://raw.githubusercontent.com/guicouto20205672-creator/varanda-do-esperto-login/main/file_000000005354820ea138bf77795a66b1.png') !important;
+    background-repeat:no-repeat !important;
+    background-size:cover !important;
+    background-position:center center !important;
+    display:flex !important;align-items:flex-end !important;justify-content:center !important;
+    padding:14px !important;min-height:100vh !important;min-height:100svh !important;
+  }
+  #authGate .authcard{width:min(420px,100%) !important;margin:0 0 10px !important;padding:20px 18px !important}
+}
+@media screen and (min-width:901px){#authGate{background-size:48% 100%;background-position:left center}}
+</style>
 </head>
 <body><div id="authGate"><div class="authcard"><div style="font-size:34px">🍢</div><h2>Varanda do Espeto</h2><p>Entre com seu e-mail e senha para abrir a área autorizada.</p><form id="authForm"><label>E-mail<input id="authEmail" type="email" autocomplete="username" required placeholder="seu@email.com"></label><label>Senha<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label><label style="display:flex;align-items:center;gap:8px"><input id="claimAdmin" type="checkbox" style="width:auto;margin:0"> Primeiro acesso: configurar conta do patrão</label><button id="authSubmit" type="submit">Entrar</button><button id="authSignup" class="secondary" type="button">Criar conta de funcionário</button><div id="authError" role="alert"></div></form></div></div>
 <div class="app">
