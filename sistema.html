@@ -279,4 +279,17 @@ $('logoutBtn').onclick=async()=>{await supa.auth.signOut();currentUser=null;curr
 $('manageUsersBtn').onclick=async()=>{$('userManager').style.display='block';await refreshUsers()};$('closeUserManager').onclick=()=>$('userManager').style.display='none';
 (async()=>{try{supa=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);const {data:{session}}=await supa.auth.getSession();if(session)await openApp(session);else showAuth()}catch(err){showAuth('Erro ao iniciar: '+(err.message||err))}})();
 </script>
+<script>
+(function(){
+ function centralizarLogin(){
+  if(!window.matchMedia('(max-width:900px)').matches)return;
+  const gate=document.getElementById('authGate'),card=gate&&gate.querySelector('.authcard');
+  if(!gate||!card)return;
+  Object.entries({position:'fixed',inset:'0',height:'100dvh',minHeight:'0',display:'grid',gridTemplateColumns:'minmax(0,1fr)',placeItems:'center',padding:'12px',overflow:'hidden'}).forEach(([k,v])=>gate.style.setProperty(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),v,'important'));
+  Object.entries({position:'relative',top:'auto',left:'auto',transform:'none',margin:'0',alignSelf:'center',justifySelf:'center',width:'min(420px, calc(100vw - 24px))',maxHeight:'calc(100dvh - 24px)',overflowY:'auto'}).forEach(([k,v])=>card.style.setProperty(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),v,'important'));
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',centralizarLogin);else centralizarLogin();
+ window.addEventListener('resize',centralizarLogin);
+})();
+</script>
 </body></html>
