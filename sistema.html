@@ -281,15 +281,31 @@ $('manageUsersBtn').onclick=async()=>{$('userManager').style.display='block';awa
 </script>
 <script>
 (function(){
- function centralizarLogin(){
-  if(!window.matchMedia('(max-width:900px)').matches)return;
-  const gate=document.getElementById('authGate'),card=gate&&gate.querySelector('.authcard');
-  if(!gate||!card)return;
-  Object.entries({position:'fixed',inset:'0',height:'100dvh',minHeight:'0',display:'grid',gridTemplateColumns:'minmax(0,1fr)',placeItems:'center',padding:'12px',overflow:'hidden'}).forEach(([k,v])=>gate.style.setProperty(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),v,'important'));
-  Object.entries({position:'relative',top:'auto',left:'auto',transform:'none',margin:'0',alignSelf:'center',justifySelf:'center',width:'min(420px, calc(100vw - 24px))',maxHeight:'calc(100dvh - 24px)',overflowY:'auto'}).forEach(([k,v])=>card.style.setProperty(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),v,'important'));
+ function positionLogin(){
+  var gate=document.getElementById('authGate'),card=gate&&gate.querySelector('.authcard');
+  if(!gate||!card||!window.matchMedia('(max-width:900px)').matches)return;
+  gate.style.setProperty('position','fixed','important');
+  gate.style.setProperty('inset','0','important');
+  gate.style.setProperty('width','100vw','important');
+  gate.style.setProperty('height','100dvh','important');
+  gate.style.setProperty('min-height','0','important');
+  gate.style.setProperty('padding','12px','important');
+  gate.style.setProperty('display','block','important');
+  gate.style.setProperty('overflow','hidden','important');
+  card.style.setProperty('position','fixed','important');
+  card.style.setProperty('top','50%','important');
+  card.style.setProperty('left','50%','important');
+  card.style.setProperty('right','auto','important');
+  card.style.setProperty('bottom','auto','important');
+  card.style.setProperty('transform','translate(-50%, -50%)','important');
+  card.style.setProperty('margin','0','important');
+  card.style.setProperty('width','min(420px, calc(100vw - 24px))','important');
+  card.style.setProperty('max-height','calc(100dvh - 24px)','important');
+  card.style.setProperty('overflow-y','auto','important');
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',centralizarLogin);else centralizarLogin();
- window.addEventListener('resize',centralizarLogin);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',positionLogin);else positionLogin();
+ window.addEventListener('resize',positionLogin);
+ window.addEventListener('orientationchange',positionLogin);
 })();
 </script>
 </body></html>
