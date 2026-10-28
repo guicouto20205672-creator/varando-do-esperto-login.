@@ -290,29 +290,25 @@ $('manageUsersBtn').onclick=async()=>{$('userManager').style.display='block';awa
 (function(){
  function positionLogin(){
   var gate=document.getElementById('authGate'),card=gate&&gate.querySelector('.authcard');
-  if(!gate||!card||!window.matchMedia('(max-width:900px)').matches)return;
-  gate.style.setProperty('position','fixed','important');
-  gate.style.setProperty('inset','0','important');
-  gate.style.setProperty('width','100vw','important');
-  gate.style.setProperty('height','100dvh','important');
-  gate.style.setProperty('min-height','0','important');
-  gate.style.setProperty('padding','12px','important');
-  gate.style.setProperty('display','block','important');
-  gate.style.setProperty('overflow','hidden','important');
-  card.style.setProperty('position','fixed','important');
-  card.style.setProperty('top','50%','important');
-  card.style.setProperty('left','50%','important');
-  card.style.setProperty('right','auto','important');
-  card.style.setProperty('bottom','auto','important');
-  card.style.setProperty('transform','translate(-50%, -50%)','important');
-  card.style.setProperty('margin','0','important');
-  card.style.setProperty('width','min(420px, calc(100vw - 24px))','important');
-  card.style.setProperty('max-height','calc(100dvh - 24px)','important');
-  card.style.setProperty('overflow-y','auto','important');
+  if(!gate||!card)return;
+  var mobile=window.innerWidth<=900||/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
+  if(!mobile)return;
+  gate.style.setProperty('position','fixed','important');gate.style.setProperty('inset','0','important');
+  gate.style.setProperty('width','100vw','important');gate.style.setProperty('height','100dvh','important');
+  gate.style.setProperty('min-height','0','important');gate.style.setProperty('padding','12px','important');
+  gate.style.setProperty('display','flex','important');gate.style.setProperty('align-items','center','important');
+  gate.style.setProperty('justify-content','center','important');gate.style.setProperty('overflow','hidden','important');
+  card.style.setProperty('position','relative','important');card.style.setProperty('inset','auto','important');
+  card.style.setProperty('top','auto','important');card.style.setProperty('left','auto','important');
+  card.style.setProperty('right','auto','important');card.style.setProperty('bottom','auto','important');
+  card.style.setProperty('transform','none','important');card.style.setProperty('margin','0','important');
+  card.style.setProperty('align-self','center','important');card.style.setProperty('flex','0 1 auto','important');
+  card.style.setProperty('width','min(420px,calc(100vw - 24px))','important');
+  card.style.setProperty('max-height','calc(100dvh - 24px)','important');card.style.setProperty('overflow-y','auto','important');
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',positionLogin);else positionLogin();
- window.addEventListener('resize',positionLogin);
- window.addEventListener('orientationchange',positionLogin);
+ function run(){positionLogin();setTimeout(positionLogin,100);setTimeout(positionLogin,500);}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+ window.addEventListener('resize',run);window.addEventListener('orientationchange',run);
 })();
 </script>
 </body></html>
