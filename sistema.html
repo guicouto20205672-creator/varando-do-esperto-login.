@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff"><title>Varanda do Espeto | Sistema</title>
 
 <style>
@@ -41,6 +41,27 @@
   #authGate .authcard{width:min(420px,100%) !important;margin:auto !important;padding:20px 18px !important}
 }
 @media screen and (min-width:901px){#authGate{background-size:48% 100%;background-position:left center}}
+
+/* Layout móvel limpo: centraliza o cartão e respeita a área visível do aparelho */
+@media screen and (max-width:900px){
+  html,body{width:100%;min-width:0;margin:0;overflow-x:hidden}
+  #authGate{
+    position:fixed!important;inset:0!important;
+    width:100%!important;height:100vh!important;height:100dvh!important;min-height:0!important;
+    display:flex!important;flex-direction:column!important;
+    align-items:center!important;justify-content:center!important;
+    box-sizing:border-box!important;padding:16px!important;overflow-y:auto!important;
+    background-position:center center!important;background-size:cover!important;
+  }
+  #authGate .authcard{
+    flex:0 0 auto!important;width:min(420px,100%)!important;max-width:100%!important;
+    margin:auto!important;box-sizing:border-box!important;
+  }
+}
+@media screen and (max-width:420px){
+  #authGate{padding:12px!important}
+  #authGate .authcard{padding:18px 16px!important}
+}
 </style>
 </head>
 <body><div id="authGate"><div class="authcard"><div style="font-size:34px">🍢</div><h2>Varanda do Espeto</h2><p>Entre com seu e-mail e senha para abrir a área autorizada.</p><form id="authForm"><label>E-mail<input id="authEmail" type="email" autocomplete="username" required placeholder="seu@email.com"></label><label>Senha<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label><label style="display:flex;align-items:center;gap:8px"><input id="claimAdmin" type="checkbox" style="width:auto;margin:0"> Primeiro acesso: configurar conta do patrão</label><button id="authSubmit" type="submit">Entrar</button><button id="authSignup" class="secondary" type="button">Criar conta de funcionário</button><div id="authError" role="alert"></div></form></div></div>
