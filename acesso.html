@@ -78,6 +78,13 @@
  body #authGate .authcard{position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;transform:none!important;margin:0!important;align-self:center!important;flex:0 1 auto!important;width:min(420px,calc(100vw - 24px))!important;max-height:calc(100dvh - 24px)!important;overflow-y:auto!important}
 }
 </style>
+<style id="login-reconstruido">
+@media (max-width:900px){
+ html,body{margin:0!important;width:100%!important;min-height:100%!important;overflow:hidden!important}
+ body #authGate{position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;min-height:0!important;margin:0!important;padding:12px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;overflow:hidden!important;background-image:linear-gradient(rgba(10,6,4,.35),rgba(10,6,4,.62)),url('https://raw.githubusercontent.com/guicouto20205672-creator/varanda-do-esperto-login/main/file_000000005354820ea138bf77795a66b1.png')!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
+ body #authGate .authcard{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;transform:none!important;float:none!important;margin:0 auto!important;width:min(390px,calc(100vw - 28px))!important;max-width:390px!important;max-height:calc(100dvh - 28px)!important;overflow-y:auto!important;flex:0 1 auto!important;align-self:center!important;box-sizing:border-box!important;padding:22px 18px!important;border-radius:18px!important}
+}
+</style>
 </head>
 <body><div id="authGate"><div class="authcard"><div style="font-size:34px">🍢</div><h2>Varanda do Espeto</h2><p>Entre com seu e-mail e senha para abrir a área autorizada.</p><form id="authForm"><label>E-mail<input id="authEmail" type="email" autocomplete="username" required placeholder="seu@email.com"></label><label>Senha<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label><label style="display:flex;align-items:center;gap:8px"><input id="claimAdmin" type="checkbox" style="width:auto;margin:0"> Primeiro acesso: configurar conta do patrão</label><button id="authSubmit" type="submit">Entrar</button><button id="authSignup" class="secondary" type="button">Criar conta de funcionário</button><div id="authError" role="alert"></div></form></div></div>
 <div class="app">
