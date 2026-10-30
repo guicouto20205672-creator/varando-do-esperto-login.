@@ -358,4 +358,64 @@ $('manageUsersBtn').onclick=async()=>{$('userManager').style.display='block';awa
  window.addEventListener('orientationchange',positionLogin);
 })();
 </script>
+<style id="atende-purple-refresh">
+/* ATUALIZACAO VISUAL: identidade escura roxo / mobile-first */
+:root{--green:#a66bff;--green-dark:#c19aff;--blue:#9b5cff;--ink:#f6f1ff;--muted:#a99dbb;--line:#342944;--bg:#0d0a14;--red:#ff7185}
+html,body{background:#0d0a14!important;color:#f6f1ff!important}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif!important}
+.app{background:#0d0a14!important;grid-template-columns:245px minmax(0,1fr)!important}
+.side{background:#100c19!important;border-color:#30243e!important;padding:22px 15px!important}
+.brand{color:#fff!important;font-size:17px!important}
+.logo{background:linear-gradient(135deg,#c18aff,#7138d5)!important;border-radius:13px!important}
+.brand small{color:#b78aff!important}
+.nav{color:#b9adc9!important;border-radius:11px!important;padding:12px!important;transition:.15s}
+.nav:hover,.nav.active{background:#2b1d40!important;color:#fff!important}
+.sidefoot{color:#9c90aa!important}
+.main{background:#0d0a14!important;padding:25px clamp(14px,2.5vw,34px)!important}
+.top{border-color:#30243e!important}
+.top h1{color:#fff!important}
+.eyebrow{color:#bb91ff!important}
+.muted{color:#a99dbb!important}
+.badge{background:#2b1d40!important;color:#d7bdff!important;border:1px solid #4b3565!important}
+.panel,.stat,.kitchen-card,.product,.tablecard,.modal{background:#171220!important;color:#f6f1ff!important;border-color:#342944!important;box-shadow:0 8px 25px #0003!important}
+.panel h2,.panel h3,.panel h4,.stat strong{color:#fff!important}
+.btn{background:#241b30!important;color:#eee4ff!important;border-color:#443454!important}
+.btn.green,.btn.blue,.primary{background:linear-gradient(135deg,#ad73ff,#7138d5)!important;border-color:#9860e7!important;color:white!important}
+.btn.red{background:#9e334b!important;color:#fff!important}
+input,select,textarea,.field input,.field select,.searchrow input,.notes{background:#100d18!important;color:#fff!important;border-color:#40334e!important}
+input::placeholder,textarea::placeholder{color:#80748e!important}
+.tabs,.tab,.filter,.mini{background:#20182b!important;color:#d6c9e5!important;border-color:#3b2d4c!important}
+.tab.active,.filter.active{background:#7944bd!important;color:white!important}
+.total{background:#2a1d3b!important;color:#e2caff!important}
+.table{filter:saturate(.85)}
+.table.busy{background:linear-gradient(145deg,#a76a35,#74431f)!important}
+.table:not(.busy){background:linear-gradient(145deg,#7846b8,#4e2b7e)!important;border-color:#9b68d4!important}
+.tablecard.selected{border-color:#b77cff!important;background:#2a1d3b!important}
+.status,.toast{background:#2a1d3b!important;color:#e4ceff!important}
+.dash-icon{background:#2a1d3b!important;border-radius:11px}
+.dash-bars>div,.dash-bar{background:linear-gradient(180deg,#b77cff,#7138d5)!important}
+#authGate{background-color:#0d0a14!important}
+@media(max-width:780px){
+ .app{display:block!important}
+ .side{display:block!important;position:static!important;height:auto!important;padding:12px 14px 0!important;border:0!important;background:#0d0a14!important}
+ .brand{padding:4px 3px 12px!important}
+ .navwrap{position:fixed!important;z-index:50!important;left:0!important;right:0!important;bottom:0!important;display:flex!important;gap:4px!important;justify-content:space-around!important;overflow-x:auto!important;padding:9px 5px calc(9px + env(safe-area-inset-bottom))!important;background:#15101f!important;border-top:1px solid #392b49!important;box-shadow:0 -8px 25px #0005!important}
+ .nav{flex:1 0 auto!important;width:auto!important;min-width:0!important;text-align:center!important;white-space:nowrap!important;padding:9px 7px!important;font-size:10px!important;border-radius:9px!important}
+ .sidefoot{display:none!important}
+ .main{padding:10px 13px 105px!important}
+ .top{padding:10px 0 14px!important;align-items:flex-start!important}
+ .top h1{font-size:22px!important}
+ .stats{gap:9px!important}
+ .stat,.panel{border-radius:15px!important}
+ .panel{padding:14px!important}
+ .tables{gap:8px!important}
+ .pdv-layout{grid-template-columns:1fr!important}
+ .pdv-right{position:static!important}
+}
+@media(max-width:420px){
+ .nav{font-size:9px!important;padding:8px 5px!important}
+ .main{padding-left:10px!important;padding-right:10px!important}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+</style>
 </body></html>
