@@ -45,6 +45,35 @@ button{border-radius:8px}
 @media(max-width:1150px){.work{grid-template-columns:1fr}.tables{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:900px){.shell{grid-template-columns:1fr}.side{display:none}.content{padding:14px}.tables{grid-template-columns:repeat(3,minmax(0,1fr))}.work{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:390px){.tables{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Ajuste real para celulares e navegadores com viewport ampliado */
+@media(max-width:1150px){
+  .shell{display:block!important;grid-template-columns:1fr!important}
+  .side{display:none!important}
+  .mobiletop{display:flex!important;position:sticky;top:0;z-index:30}
+  .main{width:100%;min-width:0}
+  .top{padding:14px 16px!important;align-items:flex-start!important;flex-wrap:wrap}
+  .top h1{font-size:20px!important}
+  .content{padding:12px!important;width:100%;max-width:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .work{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .tables{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
+  .tablecard{min-height:72px!important;padding:8px 4px!important}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .food-photo{height:110px!important}
+  .panel{padding:13px!important;min-width:0}
+  .toolbar{gap:6px!important}
+  .toolbar button{flex:1 1 auto}
+}
+@media(max-width:420px){
+  .top{padding:12px!important}
+  .content{padding:9px!important}
+  .tables{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .food-photo{height:100px!important}
+  .stat{padding:11px!important}
+  .stat strong{font-size:19px!important}
+}
 </style><link rel="manifest" href="./manifest.webmanifest"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Comandas"><link rel="icon" href="./icon.svg" type="image/svg+xml"></head><body>
 <div class="mobiletop"><strong>🔥 Varanda do Espeto</strong><button class="secondary" onclick="installApp()" id="installBtn" style="display:none">Instalar</button><button class="secondary" onclick="sair()">Sair</button></div>
 <div class="shell"><aside class="side"><div class="brand">🔥 Varanda <span>do Espeto</span></div><div class="nav active">▦　Mesas e comandas</div><div class="nav">☷　Pedidos</div><div class="nav">🍢　Cardápio</div><div class="nav">▣　Caixa</div><div class="nav">▥　Relatórios</div><div class="sidefoot">Modo demonstração<br>Pedidos salvos neste navegador</div></aside>
